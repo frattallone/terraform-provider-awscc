@@ -226,6 +226,7 @@ credential_process = custom-process --username jdoe
 - `access_key` (String) This is the AWS access key. It must be provided, but it can also be sourced from the `AWS_ACCESS_KEY_ID` environment variable, or via a shared credentials file if `profile` is specified.
 - `assume_role` (Attributes) An `assume_role` block (documented below). Only one `assume_role` block may be in the configuration. (see [below for nested schema](#nestedatt--assume_role))
 - `assume_role_with_web_identity` (Attributes) An `assume_role_with_web_identity` block (documented below). Only one `assume_role_with_web_identity` block may be in the configuration. (see [below for nested schema](#nestedatt--assume_role_with_web_identity))
+- `default_tags` (Attributes Map) Configuration block with settings to default resource tags across all resources. (see [below for nested schema](#nestedatt--default_tags))
 - `http_proxy` (String) URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.
 - `https_proxy` (String) URL of a proxy to use for HTTPS requests when accessing the AWS API. Can also be set using the `HTTPS_PROXY` or `https_proxy` environment variables.
 - `insecure` (Boolean) Explicitly allow the provider to perform "insecure" SSL requests. If not set, defaults to `false`.
@@ -275,6 +276,14 @@ Optional:
 - `session_name` (String) Session name to use when assuming the role. Can also be set with the environment variable `AWS_ROLE_SESSION_NAME`.
 - `web_identity_token` (String) The value of a web identity token from an OpenID Connect (OIDC) or OAuth provider. One of `web_identity_token` or `web_identity_token_file` is required.
 - `web_identity_token_file` (String) File containing a web identity token from an OpenID Connect (OIDC) or OAuth provider. Can also be set with the  environment variable`AWS_WEB_IDENTITY_TOKEN_FILE`. One of `web_identity_token_file` or `web_identity_token` is required.
+
+
+<a id="nestedatt--default_tags"></a>
+### Nested Schema for `default_tags`
+
+Optional:
+
+- `tags` (String) Resource tags to default across all resources
 
 
 <a id="nestedatt--user_agent"></a>

@@ -186,6 +186,19 @@ func (p *ccProvider) Schema(ctx context.Context, request provider.SchemaRequest,
 				Optional:    true,
 				Description: "An `assume_role_with_web_identity` block (documented below). Only one `assume_role_with_web_identity` block may be in the configuration.",
 			},
+			"default_tags": schema.MapNestedAttribute{
+				NestedObject: schema.NestedAttributeObject{
+					Attributes: map[string]schema.Attribute{
+						"tags": schema.StringAttribute{
+							Optional:    true,
+							Description: "Resource tags to default across all resources",
+						},
+					},
+				},
+				Description: "Configuration block with settings to default resource tags across all resources.",
+				// MaxItems:    1,
+				Optional: true,
+			},
 			"http_proxy": schema.StringAttribute{
 				Description: "URL of a proxy to use for HTTP requests when accessing the AWS API. Can also be set using the `HTTP_PROXY` or `http_proxy` environment variables.",
 				Optional:    true,
